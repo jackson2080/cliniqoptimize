@@ -109,24 +109,24 @@
     <!-- Panel: Cost Guide -->
     <div id="km-panel-cost" style="display:none">
       <div style="font-size:13px;font-weight:600;margin-bottom:12px">What does it actually cost?</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
-        <div style="padding:12px;background:var(--surface2);border-radius:var(--r);text-align:center">
-          <div style="font-size:22px;font-weight:800;color:var(--purple)">$0.002</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">Per AI analysis<br>(Dashboard, RCA, etc.)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+          <div style="padding:12px;background:var(--surface2);border-radius:var(--r);text-align:center">
+            <div style="font-size:18px;font-weight:800;color:var(--purple)">~$0.07–0.08</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:3px">Per major analysis<br>(Charter, RCA, Exec Report)</div>
+          </div>
+          <div style="padding:12px;background:var(--surface2);border-radius:var(--r);text-align:center">
+            <div style="font-size:18px;font-weight:800;color:var(--purple)">~$0.37</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:3px">Full DMAIC run<br>(all 5 phases + exec report)</div>
+          </div>
+          <div style="padding:12px;background:var(--green-light);border-radius:var(--r);text-align:center">
+            <div style="font-size:18px;font-weight:800;color:var(--green)">$5</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:3px">Minimum purchase<br>~13 full DMAIC runs</div>
+          </div>
+          <div style="padding:12px;background:var(--green-light);border-radius:var(--r);text-align:center">
+            <div style="font-size:18px;font-weight:800;color:var(--green)">$10–20</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:3px">Dept / month<br>(daily active use)</div>
+          </div>
         </div>
-        <div style="padding:12px;background:var(--surface2);border-radius:var(--r);text-align:center">
-          <div style="font-size:22px;font-weight:800;color:var(--purple)">$0.01</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">Run all 5 agents<br>(full analysis suite)</div>
-        </div>
-        <div style="padding:12px;background:var(--surface2);border-radius:var(--r);text-align:center">
-          <div style="font-size:22px;font-weight:800;color:var(--green)">$5</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">Minimum purchase<br>~2,500 analyses</div>
-        </div>
-        <div style="padding:12px;background:var(--surface2);border-radius:var(--r);text-align:center">
-          <div style="font-size:22px;font-weight:800;color:var(--green)">$10–20</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">Hospital team/month<br>(daily heavy use)</div>
-        </div>
-      </div>
       <div style="font-size:12px;font-weight:600;margin-bottom:8px">Deployment options for teams</div>
       <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
         <div style="padding:10px 12px;border-radius:var(--r);border:1px solid var(--border);font-size:12px">
@@ -294,29 +294,32 @@
 
       <!-- Sub-panel: Cost & teams -->
       <div id="ob-panel-cost" style="display:none;max-height:260px;overflow-y:auto">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
           <div style="padding:10px;background:var(--surface2);border-radius:var(--r);text-align:center">
-            <div style="font-size:20px;font-weight:800;color:var(--purple)">~$0.002</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:3px">Per AI analysis<br>(Dashboard, RCA, Charter)</div>
+            <div style="font-size:17px;font-weight:800;color:var(--purple)">~$0.07–0.08</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:3px">Per major analysis<br>(Charter, RCA, Exec Report)</div>
           </div>
           <div style="padding:10px;background:var(--surface2);border-radius:var(--r);text-align:center">
-            <div style="font-size:20px;font-weight:800;color:var(--purple)">~$0.01</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:3px">Run all 5 agents<br>(full parallel analysis)</div>
+            <div style="font-size:17px;font-weight:800;color:var(--purple)">~$0.37</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:3px">Full DMAIC run<br>(all 5 phases + exec report)</div>
           </div>
           <div style="padding:10px;background:var(--green-light);border-radius:var(--r);text-align:center">
-            <div style="font-size:20px;font-weight:800;color:var(--green)">$5</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:3px">Minimum purchase<br>~2,500 analyses</div>
+            <div style="font-size:17px;font-weight:800;color:var(--green)">$5</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:3px">Minimum purchase<br>~13 full DMAIC runs</div>
           </div>
           <div style="padding:10px;background:var(--green-light);border-radius:var(--r);text-align:center">
-            <div style="font-size:20px;font-weight:800;color:var(--green)">$10–20</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:3px">Team / month<br>(daily clinical use)</div>
+            <div style="font-size:17px;font-weight:800;color:var(--green)">$10–20</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:3px">Dept / month<br>(daily active use)</div>
           </div>
+        </div>
+        <div style="padding:8px 10px;background:var(--amber-light);border:1px solid var(--amber);border-radius:var(--r);font-size:11px;color:var(--text);margin-bottom:8px;line-height:1.5">
+          💡 <strong>Model routing:</strong> Quick tasks (problem statement, SMART goal) use Haiku 4.5 (~$0.002). Full analyses use Sonnet 4.6 (~$0.07–0.08 each). Pricing per Anthropic API, April 2026.
         </div>
         <div style="font-size:12px;font-weight:600;margin-bottom:6px">Deployment options for teams</div>
         <div style="display:flex;flex-direction:column;gap:5px">
           <div style="padding:8px 10px;background:var(--surface2);border-radius:var(--r);font-size:11px"><strong>🧑 Individual keys</strong> — Each user creates their own Anthropic account (~$5). Best for solo providers and small clinics.</div>
-          <div style="padding:8px 10px;background:var(--surface2);border-radius:var(--r);font-size:11px"><strong>🏥 Shared org key</strong> — IT creates one Anthropic account, buys credits, shares the key across the team. Best for departments and hospitals. ~$10–20/month for a full team.</div>
-          <div style="padding:8px 10px;background:var(--surface2);border-radius:var(--r);font-size:11px"><strong>🖥️ Self-hosted</strong> — Deploy on Vercel or your own server with the API key hidden server-side. Best for large multi-site deployments. Requires a developer.</div>
+          <div style="padding:8px 10px;background:var(--surface2);border-radius:var(--r);font-size:11px"><strong>🏥 Shared org key</strong> — IT creates one account, buys credits, shares the key across the team. Best for departments. ~$10–20/month for a full team.</div>
+          <div style="padding:8px 10px;background:var(--surface2);border-radius:var(--r);font-size:11px"><strong>🖥️ Self-hosted</strong> — Deploy on Vercel or your own server with the key server-side. Best for large multi-site deployments. Requires a developer.</div>
         </div>
       </div>
 
@@ -674,7 +677,7 @@
         <button class="btn btn-primary btn-sm" onclick="openModal();kmTab('enter')">Add API Key</button>
         <button class="btn btn-sm" onclick="openModal();kmTab('guide')">How to get a key</button>
       </div>
-      <div style="font-size:11px;color:var(--purple);white-space:nowrap">~$0.002/analysis · $5 → ~2,500 uses</div>
+      <div style="font-size:11px;color:var(--purple);white-space:nowrap">~$0.08/analysis · $5 → ~13 full runs</div>
     </div>
   </div>
 
