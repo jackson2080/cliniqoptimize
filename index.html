@@ -60,6 +60,11 @@
 .phase-badge.show{display:inline-flex}
 
 .nav-sub{display:block;font-size:12px;font-weight:400;opacity:0.55;margin-top:1px;letter-spacing:.02em}
+
+/* Global app footer */
+#app-footer { position:static; }
+.app-shell { display:flex; flex-direction:column; min-height:100vh; }
+.main { flex:1; }
 </style>
 </head>
 <body>
@@ -100,79 +105,49 @@
 
     <!-- Panel: How to Get a Key -->
     <div id="km-panel-guide" style="display:none">
-      <div style="font-size:16px;font-weight:600;margin-bottom:12px">Step-by-step: Get your API key in 3 minutes</div>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
-        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:var(--r)">
-          <div style="width:26px;height:26px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0">1</div>
-          <div>
-            <div style="font-size:16px;font-weight:600;margin-bottom:2px">Create a free Anthropic account</div>
-            <div style="font-size:15px;color:var(--muted);margin-bottom:6px">Go to <a href="https://console.anthropic.com" target="_blank" style="color:var(--purple);font-weight:500">console.anthropic.com</a> and sign up with your work email. No credit card needed to create an account.</div>
-          </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+        <div style="display:flex;gap:10px;align-items:center;padding:10px 12px;background:var(--surface2);border-radius:var(--r)">
+          <div style="width:24px;height:24px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">1</div>
+          <div style="font-size:15px">Go to <a href="https://console.anthropic.com" target="_blank" style="color:var(--purple);font-weight:600">console.anthropic.com</a> — sign up free</div>
         </div>
-        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:var(--r)">
-          <div style="width:26px;height:26px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0">2</div>
-          <div>
-            <div style="font-size:16px;font-weight:600;margin-bottom:2px">Add credits to your account</div>
-            <div style="font-size:15px;color:var(--muted);margin-bottom:6px">Go to <strong>Plans & Billing → Add Credits</strong>. The minimum purchase is <strong>$5</strong> — enough for thousands of analyses. Credits never expire.</div>
-            <div style="display:inline-flex;align-items:center;gap:6px;font-size:14px;padding:4px 10px;background:var(--green-light);color:var(--green);border-radius:99px;font-weight:600">💡 $5 lasts most users 2–6 months</div>
-          </div>
+        <div style="display:flex;gap:10px;align-items:center;padding:10px 12px;background:var(--surface2);border-radius:var(--r)">
+          <div style="width:24px;height:24px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">2</div>
+          <div style="font-size:15px"><strong>Plans &amp; Billing → Add Credits</strong> <span style="color:var(--muted)">(min $5 · ~13 full runs)</span></div>
         </div>
-        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:var(--r)">
-          <div style="width:26px;height:26px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0">3</div>
-          <div>
-            <div style="font-size:16px;font-weight:600;margin-bottom:2px">Generate your API key</div>
-            <div style="font-size:15px;color:var(--muted);margin-bottom:6px">Go to <strong>API Keys → Create Key</strong>. Give it a name like "CliniqOptimize". Copy the key — it starts with <code>sk-ant-</code>.</div>
-            <div style="font-size:14px;padding:6px 10px;background:var(--amber-light);color:var(--amber);border-radius:var(--r);border:1px solid #FDE68A">⚠ Copy it immediately — Anthropic only shows the key once.</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:var(--r)">
-          <div style="width:26px;height:26px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0">4</div>
-          <div>
-            <div style="font-size:16px;font-weight:600;margin-bottom:2px">Paste it into CliniqOptimize</div>
-            <div style="font-size:15px;color:var(--muted)">Click <strong>Enter Key</strong> tab above, paste your key, and click Save & Connect. Done!</div>
-          </div>
+        <div style="display:flex;gap:10px;align-items:center;padding:10px 12px;background:var(--surface2);border-radius:var(--r)">
+          <div style="width:24px;height:24px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">3</div>
+          <div style="font-size:15px"><strong>API Keys → Create Key</strong> — copy it <span style="color:var(--amber);font-weight:600">(shown once)</span></div>
         </div>
       </div>
-      <a href="https://console.anthropic.com" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;text-decoration:none">Open Anthropic Console →</a>
+      <a href="https://console.anthropic.com" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;text-decoration:none;font-size:15px">Open Anthropic Console →</a>
     </div>
 
     <!-- Panel: Cost Guide -->
+    
     <div id="km-panel-cost" style="display:none">
-      <div style="font-size:16px;font-weight:600;margin-bottom:12px">What does it actually cost?</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
-          <div style="padding:12px;background:var(--surface2);border-radius:var(--r);text-align:center">
-            <div style="font-size:20px;font-weight:800;color:var(--purple)">~$0.07–0.08</div>
-            <div style="font-size:15px;color:var(--muted);margin-top:3px">Per major analysis<br>(Charter, RCA, Exec Report)</div>
-          </div>
-          <div style="padding:12px;background:var(--surface2);border-radius:var(--r);text-align:center">
-            <div style="font-size:20px;font-weight:800;color:var(--purple)">~$0.37</div>
-            <div style="font-size:15px;color:var(--muted);margin-top:3px">Full DMAIC run<br>(all 5 phases + exec report)</div>
-          </div>
-          <div style="padding:12px;background:var(--green-light);border-radius:var(--r);text-align:center">
-            <div style="font-size:20px;font-weight:800;color:var(--green)">$5</div>
-            <div style="font-size:15px;color:var(--muted);margin-top:3px">Minimum purchase<br>~13 full DMAIC runs</div>
-          </div>
-          <div style="padding:12px;background:var(--green-light);border-radius:var(--r);text-align:center">
-            <div style="font-size:20px;font-weight:800;color:var(--green)">$10–20</div>
-            <div style="font-size:15px;color:var(--muted);margin-top:3px">Dept / month<br>(daily active use)</div>
-          </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+        <div style="padding:10px;background:var(--surface2);border-radius:var(--r);text-align:center">
+          <div style="font-size:18px;font-weight:800;color:var(--purple)">~$0.08</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:2px">Per analysis</div>
         </div>
-      <div style="font-size:15px;font-weight:600;margin-bottom:8px">Deployment options for teams</div>
-      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
-        <div style="padding:10px 12px;border-radius:var(--r);border:1px solid var(--border);font-size:15px">
-          <div style="font-weight:600;color:var(--text);margin-bottom:2px">🧑 Individual — Each user buys their own key</div>
-          <div style="color:var(--muted)">Best for small teams or personal use. Each person creates their own $5 account. Zero cost to you.</div>
+        <div style="padding:10px;background:var(--surface2);border-radius:var(--r);text-align:center">
+          <div style="font-size:18px;font-weight:800;color:var(--purple)">~$0.37</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:2px">Full DMAIC run</div>
         </div>
-        <div style="padding:10px 12px;border-radius:var(--r);border:1px solid var(--border);font-size:15px">
-          <div style="font-weight:600;color:var(--text);margin-bottom:2px">🏥 Organizational — One shared key for all staff</div>
-          <div style="color:var(--muted)">IT creates one Anthropic account, buys credits in bulk, and shares the API key with all CliniqOptimize users. Centralized billing, easier for staff.</div>
+        <div style="padding:10px;background:var(--green-light);border-radius:var(--r);text-align:center">
+          <div style="font-size:18px;font-weight:800;color:var(--green)">$5</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:2px">Min purchase · ~13 runs</div>
         </div>
-        <div style="padding:10px 12px;border-radius:var(--r);border:1px solid var(--border);font-size:15px">
-          <div style="font-weight:600;color:var(--text);margin-bottom:2px">🖥️ Hosted proxy — You manage a backend server</div>
-          <div style="color:var(--muted)">Deploy on Vercel/AWS. Your key lives server-side — users never see it. Requires developer setup. Best for large deployments with access control.</div>
+        <div style="padding:10px;background:var(--green-light);border-radius:var(--r);text-align:center">
+          <div style="font-size:18px;font-weight:800;color:var(--green)">$10–20</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:2px">Dept / month</div>
         </div>
       </div>
-      <div style="font-size:14px;color:var(--muted);padding:8px 10px;background:var(--surface2);border-radius:var(--r)">Credits purchased on console.anthropic.com never expire. Usage is pay-as-you-go — no subscription, no commitment.</div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="padding:8px 10px;background:var(--surface2);border-radius:var(--r);font-size:13px"><strong>🧑 Individual</strong> — Each user creates their own $5 account.</div>
+        <div style="padding:8px 10px;background:var(--surface2);border-radius:var(--r);font-size:13px"><strong>🏥 Org key</strong> — IT shares one key across the team. ~$10–20/mo.</div>
+        <div style="padding:8px 10px;background:var(--surface2);border-radius:var(--r);font-size:13px"><strong>🖥️ Hosted</strong> — Key lives server-side. Needs developer setup.</div>
+      </div>
     </div>
   </div>
 </div>
@@ -412,9 +387,20 @@
       <option value="Greenway Health">Greenway Health</option>
     </select>
 
-    <button onclick="resetOnboarding()" style="display:flex;align-items:center;gap:4px;width:100%;background:none;border:1px solid rgba(255,255,255,0.12);border-radius:var(--r);padding:3px 7px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;font-family:inherit;transition:background .12s" onmouseover="this.style.background='rgba(255,255,255,0.07)'" onmouseout="this.style.background='none'">
-      ↺ Re-run Setup
-    </button>
+    <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;margin-top:6px">Department</div>
+    <select id="i-dept" onchange="updDashboardDept(this.value)" style="font-size:13px;padding:5px 7px;border-radius:var(--r);border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);width:100%;font-family:inherit;cursor:pointer;margin-bottom:5px">
+      <option value="Emergency Department">Emergency Department</option>
+      <option value="Urgent Care">Urgent Care</option>
+      <option value="Inpatient/Medical-Surgical">Inpatient / Medical-Surgical</option>
+      <option value="ICU/Critical Care">ICU / Critical Care</option>
+      <option value="Ambulatory/Outpatient">Ambulatory / Outpatient</option>
+      <option value="Pharmacy">Pharmacy</option>
+      <option value="Laboratory">Laboratory</option>
+      <option value="Radiology">Radiology</option>
+      <option value="Operating Room">Operating Room</option>
+    </select>
+
+
   </div>
 
   <div class="nav-section" style="font-size:10px">Overview</div>
@@ -625,10 +611,7 @@
   </div>
 </div>
 
-  <div style="text-align:center;padding:12px;font-size:13px;color:var(--muted)">
-    <strong style="color:var(--text)">CliniqOptimize v0.4</strong> · QI use only · Not a substitute for clinical judgment<br>
-    <span style="margin-top:4px;display:inline-block">💬 <a href="mailto:cliniqoptimize@gmail.com" style="color:var(--purple);text-decoration:none;font-weight:600">cliniqoptimize@gmail.com</a></span>
-  </div>
+
 
 <div id="page-dashboard" class="page active">
     <div class="page-header"><div class="page-header-top"><div class="page-header-left"><div class="page-title">Dashboard</div><div class="page-desc">Enter metrics · see gaps vs. benchmarks</div></div><button class="how-toggle" onclick="document.getElementById('how-dropdown-dashboard').classList.toggle('open'); this.classList.toggle('open'); this.textContent = this.classList.contains('open') ? '📖 Close' : '❓ How it works';">❓ How it works</button></div><div id="how-dropdown-dashboard" class="how-dropdown">
@@ -661,19 +644,8 @@
       <span style="width:1px;height:16px;background:var(--border2);flex-shrink:0"></span>
       <span style="font-size:15px;color:var(--muted);white-space:nowrap;flex-shrink:0">Belt: <strong style="color:var(--text)" id="sb-belt-label">Yellow</strong></span>
       <span style="font-size:15px;color:var(--muted);white-space:nowrap;flex-shrink:0">EHR: <strong style="color:var(--text)" id="sb-ehr-label">Epic</strong></span>
-      <span style="width:1px;height:16px;background:var(--border2);flex-shrink:0"></span>
-      <span style="font-size:15px;color:var(--muted);flex-shrink:0;white-space:nowrap">Dept:</span>
-      <select id="i-dept" onchange="updDashboardDept(this.value)" style="font-size:15px;font-weight:500;padding:4px 8px;border-radius:var(--r);border:1px solid var(--border2);background:var(--surface2);color:var(--text);font-family:inherit;cursor:pointer;max-width:200px;flex-shrink:1">
-        <option value="Emergency Department">Emergency Department</option>
-        <option value="Urgent Care">Urgent Care</option>
-        <option value="Inpatient/Medical-Surgical">Inpatient / Medical-Surgical</option>
-        <option value="ICU/Critical Care">ICU / Critical Care</option>
-        <option value="Ambulatory/Outpatient">Ambulatory / Outpatient</option>
-        <option value="Pharmacy">Pharmacy</option>
-        <option value="Laboratory">Laboratory</option>
-        <option value="Radiology">Radiology</option>
-        <option value="Operating Room">Operating Room</option>
-      </select>
+      <span style="font-size:15px;color:var(--muted);white-space:nowrap;flex-shrink:0">Dept: <strong style="color:var(--text)" id="sb-dept-label">Emergency Department</strong></span>
+
     </div>
   </div>
 
@@ -684,7 +656,7 @@
     <div class="card-header" style="margin-bottom:14px">
       <div>
         <div class="card-title">Performance Summary</div>
-        <div class="card-sub">Updates as you type · Color = vs. benchmark · Includes Sigma, DPMO, Ppk + top department metrics</div>
+        <div class="card-sub">Live · color-coded vs. benchmarks</div>
       </div>
       <span class="pill pill-purple" id="strip-dept-badge">Emergency Department</span>
     </div>
@@ -703,7 +675,7 @@
               <div class="rtip-body">These 4 fields let the AI calculate <strong>real dollar estimates</strong> for your penalty exposure and COPQ (Cost of Poor Quality). Without them, reports use percentages only. With them, every metric gap becomes a specific dollar figure — e.g., "your current readmission rate puts you at risk of a $847,000 HRRP penalty."<br><br>All calculations use the CMS IPPS formula: <code>Payment = Base Rate × MS-DRG Weight × Wage Index ± Adjustments</code>. Penalty programs applied: HRRP (up to 3%), VBP (±2%), HACRP (1%).</div>
               <div class="rtip-bench">🎯 Find in: your annual CMS Cost Report (Form 2552-10) · Medicare Provider Analysis and Review (MedPAR) file · Finance department's Medicare summary report</div>
             </div></span>
-            <span style="font-weight:400">(optional — enables financial penalty calculations)</span>
+            <span style="font-weight:400;color:var(--muted);font-size:13px"> · optional</span>
           </span>
           <span style="font-size:14px;color:var(--muted)">▾</span>
         </div>
@@ -773,7 +745,7 @@
     <div class="card-header">
       <div>
         <div class="card-title">Enter Your EHR Metrics</div>
-        <div class="card-sub">All fields update instantly — click Analyze for AI deep-dive</div>
+        <div class="card-sub">Update instantly · click Analyze for AI deep-dive</div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;gap:6px">
         
@@ -812,14 +784,14 @@
       <div class="card" style="display:none">
         <div class="card-header"><div class="card-title">Top Bottlenecks</div><span class="pill pill-purple" id="bn-badge">Industry benchmarks</span></div>
         <div class="bn-list" id="bn-list"></div>
-        <div style="font-size:14px;color:var(--muted);margin-top:10px;padding:8px 10px;background:var(--surface2);border-radius:var(--r)">📊 Bottlenecks update automatically as you type metrics. Red = exceeds benchmark · Amber = approaching threshold · Teal = minor gap.</div>
+        
       </div>
       <div class="card" style="display:none">
         <div class="card-header">
           <div class="card-title">Efficiency by Department</div>
           <span class="pill pill-blue" id="dept-eff-badge">Live</span>
         </div>
-        <div style="font-size:14px;color:var(--muted);margin-bottom:10px">Process efficiency score for each metric vs. its benchmark (100% = exactly at benchmark)</div>
+        
         <div id="dept-bars"></div>
       </div>
     </div>
@@ -829,12 +801,12 @@
       <div class="card-header">
         <div>
           <div class="card-title">🛡️ Patient Safety Measures</div>
-          <div class="card-sub">Safety-critical metrics for the selected department — live from your entered data</div>
+          <div class="card-sub">Live from entered data</div>
         </div>
         <span class="pill pill-red" id="safety-badge">—</span>
       </div>
       <div id="safety-bars"></div>
-      <div style="font-size:14px;color:var(--muted);margin-top:10px;padding:8px 10px;background:var(--surface2);border-radius:var(--r)">🛡️ Safety metrics use stricter thresholds. Red = immediate attention required · Amber = improvement needed · Teal = within safe range. Enter values above to populate.</div>
+      
     </div>
   </div>
 </div>
@@ -948,7 +920,7 @@
     <div class="card-header">
       <div>
         <div class="card-title">Defect / Error Count <span style="font-size:15px;color:var(--red);font-weight:600">Required</span></div>
-        <div class="card-sub">Drives DPMO and Sigma — use actual observed defects from your EHR quality reports</div>
+        <div class="card-sub">Use observed defects from EHR reports</div>
       </div>
     </div>
     <div class="form-grid3">
@@ -962,7 +934,7 @@
   <div class="card">
     <div class="card-header">
       <div class="card-title">Process Statistics <span style="font-size:15px;color:var(--muted);font-weight:400">— optional, unlocks Ppk &amp; UCL/LCL</span></div>
-      <div class="card-sub">USL/LSL required for true Ppk. Mean/SD auto-compute from the data series below if left blank.</div>
+      <div class="card-sub">USL/LSL required for Ppk · Mean/SD auto-compute if blank</div>
     </div>
     <div class="form-grid">
       <div class="form-row"><label>Process Mean (average value)</label><input type="number" id="m-mean" step="0.1" placeholder="e.g., 42 minutes average D2P" oninput="debouncedLiveUpdate()"></div>
@@ -979,12 +951,12 @@
   <div class="card">
     <div class="card-header">
       <div class="card-title">Individual Data Series <span style="font-size:15px;color:var(--muted);font-weight:400">— optional, enables MR̄/d₂ control limits</span></div>
-      <div class="card-sub">Paste raw values from your EHR export — auto-calculates Mean, SD, UCL, LCL using Shewhart Individual chart method</div>
+      <div class="card-sub">Paste raw values from EHR export chart method</div>
     </div>
     <div class="form-row">
       <label>Comma-separated measurements <span class="rtip">ⓘ<div class="rtip-popup" id="tip-series"><span class="rtip-badge rtip-g">📊 Measure</span><div class="rtip-title">Data Series — Individual Measurements</div><div class="rtip-body">Paste your raw process measurements separated by commas. These are used to calculate UCL/LCL using the Shewhart Individual chart method (MR̄/d₂). More points = tighter and more accurate limits. 20–50 values is ideal.</div><div class="rtip-bench">🎯 Best practice: 20–50 consecutive values from the same time period. Pull from your EHR export (Epic Reporting Workbench, Cerner Operational Reports, etc.)</div></div></span></label>
       <div class="ta-wrap"><textarea id="m-series" rows="3" placeholder="e.g., 38,42,55,29,41,67,33,44,38,51,29,45,58,37,42,44,36,48,39,52..." oninput="debouncedLiveUpdate()"></textarea><button class="ta-clear" onclick="clearTA('m-series')">✕</button></div>
-      <div style="font-size:14px;color:var(--muted);margin-top:5px;line-height:1.5">20–50 consecutive individual values recommended. Each number = one observation (one patient visit, one order TAT). Mean and SD auto-fill if blank above.</div>
+      <div style="font-size:14px;color:var(--muted);margin-top:5px;line-height:1.5">ne order TAT). Mean and SD auto-fill if blank above.</div>
     </div>
   </div>
 
@@ -1065,7 +1037,7 @@
     <div class="card-header">
       <div>
         <div class="card-title">Problem Statement (Fish Head)</div>
-        <div class="card-sub">Define the specific defect or outcome you are analyzing</div>
+        <div class="card-sub">The specific defect or outcome you are analyzing</div>
       </div>
       <button class="btn btn-sm" onclick="pullProbFromDefine()" title="Copy from Define phase">Pull from Define</button>
     </div>
@@ -1201,7 +1173,7 @@
     <div class="card-header">
       <div>
         <div class="card-title">AI Fishbone Analysis</div>
-        <div class="card-sub">AI will synthesize all 6 bones, rank root causes by impact, and generate targeted improvement recommendations</div>
+        <div class="card-sub">endations</div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn btn-primary" id="b-rca" onclick="doRCA()">Run Root Cause Analysis ✨</button>
@@ -1217,14 +1189,14 @@
         <input type="radio" name="rca-mode" id="rca-mode-user" value="user" checked style="width:auto;margin-top:3px;accent-color:var(--purple)">
         <div>
           <div style="font-weight:600;font-size:15px">User-identified causes only</div>
-          <div style="font-size:14px;color:var(--muted);margin-top:1px">AI validates, expands, and ranks only the causes you entered in the 6 bones above. Empty bones are left as-is.</div>
+          <div style="font-size:14px;color:var(--muted);margin-top:1px">eft as-is.</div>
         </div>
       </label>
       <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;margin:0;text-transform:none;letter-spacing:0;font-weight:400;font-size:16px;color:var(--text)">
         <input type="radio" name="rca-mode" id="rca-mode-common" value="common" style="width:auto;margin-top:3px;accent-color:var(--purple)">
         <div>
           <div style="font-weight:600;font-size:15px">Include most common root causes (Pareto 80%)</div>
-          <div style="font-size:14px;color:var(--muted);margin-top:1px">AI augments your entries with the top causes known to drive 80% of similar healthcare process problems. Useful when bones are partially filled.</div>
+          <div style="font-size:14px;color:var(--muted);margin-top:1px">ms. Useful when bones are partially filled.</div>
         </div>
       </label>
     </div>
@@ -1365,7 +1337,7 @@
       <div class="card-header">
         <div>
           <div class="card-title">Current State — Process Steps</div>
-          <div class="card-sub">Add each step in your current flow. Enter actual times from observation or EHR reports.</div>
+          <div class="card-sub">Enter steps and actual times from observation</div>
         </div>
         <div style="display:flex;gap:6px;align-items:center">
           <select id="vsm-template-sel" style="font-size:14px;padding:5px 8px;border-radius:var(--r);border:1px solid var(--border2);background:var(--surface);color:var(--text);font-family:inherit;cursor:pointer">
@@ -1430,7 +1402,7 @@
       <div class="card-header">
         <div>
           <div class="card-title">Future State — Redesigned Flow</div>
-          <div class="card-sub">Design your improved process. Reduce waits, eliminate NVA steps, mark kaizen bursts.</div>
+          <div class="card-sub">Design improved process · reduce waits · mark kaizen bursts</div>
         </div>
         <div style="display:flex;gap:6px">
           <button class="btn btn-sm btn-primary" onclick="vsmCopyToFuture()">⤵ Copy from Current</button>
@@ -1498,7 +1470,7 @@
   <div class="card">
     <div class="form-row"><label>Describe your improvement challenge <span class="rtip">ⓘ<div class="rtip-popup" id="tip-sugg-in"></div></span></label>
       <div class="ta-wrap"><textarea id="sugg-in" rows="4" placeholder="e.g., Our ICU has a 14% central-line infection rate, nurses spend 3.1 hrs/day in Epic, and we have frequent medication reconciliation errors at handoff. We are a 250-bed community hospital with limited budget..."></textarea><button class="ta-clear" onclick="clearTA('sugg-in')">✕</button></div>
-      <div style="font-size:14px;color:var(--muted);margin-top:5px;line-height:1.5">Include: your department and EHR system · the specific metric and current value · what you have already tried · your constraints (budget, staffing, IT bandwidth). The more context you give, the more specific and actionable the suggestions will be.</div>
+      <div style="font-size:14px;color:var(--muted);margin-top:5px;line-height:1.5">ady tried · your constraints (budget, staffing, IT bandwidth). The more context you give, the more specific and actionable the suggestions will be.</div>
     </div>
     <div class="form-grid">
       <div class="form-row"><label>Focus Area <span class="rtip">ⓘ<div class="rtip-popup" id="tip-sugg-foc"></div></span></label><select id="sugg-foc"><option>Patient Safety</option><option>Operational Efficiency</option><option>EHR Optimization</option><option>Staff Workflow</option><option>Financial Performance</option><option>Patient Experience</option><option>Quality / Compliance</option></select></div>
@@ -1551,7 +1523,7 @@
   <div class="card">
     <div class="card-header"><div class="card-title">EHR & Workflow Usability Analysis</div><button class="btn btn-primary btn-sm" id="b-hmi" onclick="doHMI()">Analyze ✨</button></div>
     <label style="margin-bottom:4px">Describe the EHR usability issue <span class="rtip">ⓘ<div class="rtip-popup" id="tip-hmi"><span class="rtip-badge rtip-g">💻 Human Factors</span><div class="rtip-title">EHR Usability Description</div><div class="rtip-body">Describe what you observe: which workflows feel broken, which screens cause workarounds, what staff complain about. Focus on observable behaviors — bypassed fields, repeated clicks, alert dismissals — not just feelings. Include the EHR module or screen name if you know it.</div><div class="rtip-bench">🎯 Include: which role is affected · which EHR module · how often it happens · what workaround staff currently use</div></div></span></label>
-    <div style="font-size:14px;color:var(--muted);margin-bottom:8px;line-height:1.5">Describe observable EHR friction: bypassed fields, excessive clicks, dismissed alerts, documentation burden, or workflow mismatches. Include the role affected, the EHR screen or module, and any workarounds staff are using. The more specific, the more targeted the analysis.</div>
+    <div style="font-size:14px;color:var(--muted);margin-bottom:8px;line-height:1.5"> burden, or workflow mismatches. Include the role affected, the EHR screen or module, and any workarounds staff are using. The more specific, the more targeted the analysis.</div>
     <div class="ta-wrap"><textarea id="hmi-in" rows="3" placeholder="e.g., Nurses frequently bypass required Epic fields, providers spend excessive time on drop-down menus, alert fatigue causes meaningful warnings to be dismissed..."></textarea><button class="ta-clear" onclick="clearTA('hmi-in')">✕</button></div>
     <div id="o-hmi" class="ai-box" style="display:none;margin-top:12px"></div>
   </div>
@@ -1743,6 +1715,11 @@
 </div>
 
 </main>
+<div id="app-footer" style="margin:0;padding:12px 24px;border-top:1px solid var(--border);background:var(--surface2);text-align:center;font-size:13px;color:var(--muted);line-height:1.6;flex-shrink:0">
+  <strong style="color:var(--text)">CliniqOptimize v0.4</strong> · QI use only · Not a substitute for clinical judgment
+  &nbsp;·&nbsp;
+  💬 <a href="mailto:cliniqoptimize@gmail.com" style="color:var(--purple);text-decoration:none;font-weight:600">cliniqoptimize@gmail.com</a>
+</div>
 
 <script>
 // ── DMAIC PROGRESS TRACKER ──────────────────────────────────────────────
@@ -3700,8 +3677,11 @@ function updDashboardBanner(){
    const beltLabels = { yellow:'🟡 Yellow Belt', green:'🟢 Green Belt', black:'⚫ Black Belt' };
    const bl = document.getElementById('sb-belt-label');
    const el = document.getElementById('sb-ehr-label');
+   const dl = document.getElementById('sb-dept-label');
    if (bl) bl.textContent = beltLabels[currentBelt] || currentBelt;
    if (el) el.textContent = selectedEHR || 'Epic';
+   const deptEl = document.getElementById('i-dept');
+   if (dl && deptEl) dl.textContent = deptEl.value || 'Emergency Department';
 
   } else {
    setup.style.display = 'block';
@@ -4385,12 +4365,36 @@ function showOut(id, txt, err) {
   e.className = 'ai-box' + (err ? ' ai-box-err' : '');
 
   if (err) {
-   e.style.background = 'var(--red-light)';
-   e.style.color = 'var(--red)';
-   e.style.whiteSpace = 'pre-wrap';
-   e.innerHTML = '';
-   e.textContent = txt;
-   return;
+    e.style.background = '';
+    e.style.color = '';
+    e.style.whiteSpace = 'normal';
+    e.style.padding = '0';
+    e.style.border = 'none';
+
+    // API key missing — show rich prompt card
+    if (txt && txt.includes('No API key')) {
+      e.innerHTML = `<div style="padding:24px 20px;background:var(--surface);border:2px solid #FCA5A5;border-radius:var(--r2);text-align:center">
+        <div style="font-size:32px;margin-bottom:10px">🔑</div>
+        <div style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px">API Key Required</div>
+        <div style="font-size:15px;color:var(--muted);margin-bottom:18px;line-height:1.5">CliniqOptimize uses Anthropic's Claude AI.<br>Add your key to run analyses.</div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button onclick="openModal()" style="padding:10px 22px;background:var(--purple);color:white;border:none;border-radius:var(--r2);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit">🔑 Add API Key</button>
+          <a href="https://console.anthropic.com" target="_blank" style="padding:10px 22px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:var(--r2);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center">Get a key →</a>
+        </div>
+        <div style="margin-top:14px;font-size:13px;color:var(--muted)">~$5 for ~13 full DMAIC runs · Key stays in your browser</div>
+      </div>`;
+      return;
+    }
+
+    // Generic error card
+    e.innerHTML = `<div style="padding:16px 18px;background:var(--red-light);border:1px solid #FCA5A5;border-radius:var(--r2);display:flex;gap:12px;align-items:flex-start">
+      <div style="font-size:20px;flex-shrink:0;margin-top:1px">⚠️</div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--red);margin-bottom:3px">Something went wrong</div>
+        <div style="font-size:14px;color:var(--red);line-height:1.5;word-break:break-word">${txt.replace(/^Error:\s*/,'')}</div>
+      </div>
+    </div>`;
+    return;
   }
 
   e.style.background = '';
@@ -6096,6 +6100,8 @@ function confirmResetMetrics(yes) {
 }
 
 function updDashboardDept(val) {
+  const dl = document.getElementById('sb-dept-label');
+  if (dl) dl.textContent = val || 'Emergency Department';
   renderMetricsForDept(val);
   const defineEl = document.getElementById('d-dept');
   if (defineEl) {
@@ -11136,7 +11142,9 @@ List every source cited above in APA 7th format with DOI.`, null, 4000);
 
   } catch(e) {
     if (loader) loader.stop();
-    if (outEl) { outEl.innerHTML = `<div class="ai-box" style="color:var(--red);padding:16px">Error: ${e.message}</div>`; outEl.style.display = 'block'; }
+    if (outEl) { outEl.innerHTML = e.message && e.message.includes('No API key')
+        ? `<div style="padding:24px 20px;background:var(--surface);border:2px solid #FCA5A5;border-radius:var(--r2);text-align:center"><div style="font-size:32px;margin-bottom:10px">🔑</div><div style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px">API Key Required</div><div style="font-size:15px;color:var(--muted);margin-bottom:18px;line-height:1.5">Add your Anthropic API key to run analyses.</div><div style="display:flex;gap:10px;justify-content:center"><button onclick="openModal()" style="padding:10px 22px;background:var(--purple);color:white;border:none;border-radius:var(--r2);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit">🔑 Add API Key</button></div><div style="margin-top:14px;font-size:13px;color:var(--muted)">~$5 for ~13 full DMAIC runs</div></div>`
+        : `<div style="padding:16px 18px;background:var(--red-light);border:1px solid #FCA5A5;border-radius:var(--r2);display:flex;gap:12px;align-items:flex-start"><div style="font-size:20px;flex-shrink:0">⚠️</div><div><div style="font-size:15px;font-weight:700;color:var(--red);margin-bottom:3px">Something went wrong</div><div style="font-size:14px;color:var(--red)">${e.message.replace(/^Error:\s*/,'')}</div></div></div>`; outEl.style.display = 'block'; }
     else if (slot) { slot.innerHTML = `<div class="ai-box" style="color:var(--red)">Error: ${e.message}</div>`; }
   }
   setBtn('b-imp', false);
