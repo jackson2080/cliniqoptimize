@@ -12490,6 +12490,16 @@ function _initOutputCTAs(){
 const _origNav = typeof nav === 'function' ? nav : null;
 // (tracker renders are triggered after nav in the patched nav function below)
 </script>
+
+<!-- Vercel Speed Insights -->
+<script type="module">
+  import { injectSpeedInsights } from 'https://unpkg.com/@vercel/speed-insights@latest/dist/index.mjs';
+  
+  // Initialize Speed Insights
+  injectSpeedInsights({
+    debug: false // Set to true during development to see events in console
+  });
+</script>
 </body>
 </html>
   </div>
