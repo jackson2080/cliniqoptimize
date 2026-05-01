@@ -5684,24 +5684,40 @@ function liveUpdate(){
   const mUSL  = +(document.getElementById('m-usl') || {}).value || 0;
   const mLSL  = +(document.getElementById('m-lsl') || {}).value || 0;
 
-  const hasRealMeasure = mN > 0 && mD >= 0 && mN > 0;
+  const hasRealMeasure = mN > 0 && mD >= 0;
 
   let hasUserDashboardInput = false;
-  if (!hasRealMeasure) {
-   (activeDeptMetrics || []).forEach(m => {
+  let totalDefects = 0;
+  let totalOpps    = 0;
+  let primaryVal   = null;
+
+  (activeDeptMetrics || []).forEach(m => {
    const el = document.getElementById(m.id);
    if (!el) return;
    const raw = el.value;
-   if (raw !== '' && raw !== undefined && !isNaN(parseFloat(raw))) {
+   if (raw === '' || raw === undefined) return;
+   const val = parseFloat(raw);
+   if (isNaN(val)) return;
+
    hasUserDashboardInput = true;
-   }
-   });
-  }
+
+   const bv = benchVal(m.bench, m.unit);
+   if (bv === null || bv === 0) return;
+
+   totalOpps++;
+   const isLow = m.dir === 'low';
+   const gap = isLow ? (val - bv) / bv : (bv - val) / bv;
+   if (gap > 0) totalDefects += Math.min(gap, 1);
+   if (primaryVal === null) primaryVal = val;
+  });
 
   if (!hasRealMeasure && !hasUserDashboardInput) {
-   document.getElementById('v-sigma') && (document.getElementById('v-sigma').textContent = '—');
-   document.getElementById('v-dpmo')  && (document.getElementById('v-dpmo').textContent  = '—');
-   document.getElementById('v-cpk')  && (document.getElementById('v-cpk').textContent  = '—');
+   const vSigma = document.getElementById('v-sigma');
+   const vDpmo  = document.getElementById('v-dpmo');
+   const vCpk   = document.getElementById('v-cpk');
+   if (vSigma) vSigma.textContent = '—';
+   if (vDpmo)  vDpmo.textContent  = '—';
+   if (vCpk)   vCpk.textContent   = '—';
    const sb = document.getElementById('sigma-badge');
    if (sb) { sb.textContent = 'At Benchmark'; sb.className = 'metric-badge pill-teal'; sb.style.background=''; sb.style.color=''; }
    lastStats = null;
@@ -5714,26 +5730,6 @@ function liveUpdate(){
 
   const ptsEl = document.getElementById('i-pts');
   const pts  = ptsEl ? (+ptsEl.value || 1) : 1;
-
-  let totalDefects = 0;
-  let totalOpps  = 0;
-  let primaryVal  = null;
-
-  (activeDeptMetrics || []).forEach(m => {
-   const el = document.getElementById(m.id);
-   if (!el || el.value === '') return;
-   const val = parseFloat(el.value);
-   if (isNaN(val)) return;
-   const bv = benchVal(m.bench, m.unit);
-   if (bv === null || bv === 0) return;
-
-   totalOpps++;
-   const isLow = m.dir === 'low';
-   const gap = isLow ? (val - bv) / bv : (bv - val) / bv;
-   if (gap > 0) totalDefects += Math.min(gap, 1);
-
-   if (primaryVal === null) primaryVal = val;
-  });
 
   if (totalOpps === 0) {
    const merrEl = document.getElementById('i-merr') || document.getElementById('i-reruns') ||
@@ -5769,9 +5765,12 @@ function liveUpdate(){
   lastStats = s;
   const sig = parseFloat(s.sigma);
 
-  document.getElementById('v-sigma') && (document.getElementById('v-sigma').textContent = s.sigma + 'σ');
-  document.getElementById('v-dpmo')  && (document.getElementById('v-dpmo').textContent  = s.dpmo.toLocaleString());
-  document.getElementById('v-cpk')  && (document.getElementById('v-cpk').textContent  = s.Cpk);
+  const vSigma = document.getElementById('v-sigma');
+  const vDpmo  = document.getElementById('v-dpmo');
+  const vCpk   = document.getElementById('v-cpk');
+  if (vSigma) vSigma.textContent = s.sigma + 'σ';
+  if (vDpmo)  vDpmo.textContent  = s.dpmo.toLocaleString();
+  if (vCpk)   vCpk.textContent   = s.Cpk;
   const sb = document.getElementById('sigma-badge');
   if (sb) {
    if (sig >= 4.5) { sb.textContent = 'Good';  sb.className = 'metric-badge pill-teal'; }
@@ -12065,8 +12064,11 @@ function detectBottlenecks(){
     return;
   }
 
-  const redCount = detected.filter(d => d.sev === 'red').length;
-  const amberCount = detected.filter(d => d.sev === 'amber').length;
+  let redCount = 0, amberCount = 0;
+  for (const d of detected) {
+    if (d.sev === 'red') redCount++;
+    else if (d.sev === 'amber') amberCount++;
+  }
   badge.textContent = `${redCount} critical · ${amberCount} moderate`;
   badge.className = redCount > 0 ? 'pill pill-red' : 'pill pill-amber';
 
