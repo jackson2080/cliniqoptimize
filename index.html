@@ -218,6 +218,12 @@
         </div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="obNext(2)" style="width:100%;justify-content:center;font-size:17px;padding:14px">Get Started →</button>
+      <div style="text-align:center;margin-top:12px">
+        <label style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none">
+          <input type="checkbox" id="ob-dont-show" style="width:15px;height:15px;cursor:pointer;accent-color:var(--purple)">
+          Don't show this on startup
+        </label>
+      </div>
     </div>
 
     <!-- Step 2: Belt Selection -->
@@ -3258,6 +3264,8 @@ function obSkipKey() {
 
 function completeOnboarding() {
   sessionStorage.setItem('cq_onboarded', '1');
+  const dontShow = document.getElementById('ob-dont-show');
+  if (dontShow && dontShow.checked) localStorage.setItem('cq_hide_onboarding', '1');
   document.getElementById('onboard-modal').classList.remove('visible');
   document.getElementById('app-shell').classList.add('visible');
   setBelt(obSelectedBelt || 'yellow');
@@ -3278,6 +3286,7 @@ const delKey = () => localStorage.removeItem('cq_key');
 function resetOnboarding() {
   sessionStorage.removeItem('cq_onboarded');
   sessionStorage.removeItem('cq_belt');
+  localStorage.removeItem('cq_hide_onboarding');
   [1,2,3].forEach(s => {
     const el = document.getElementById('ob-step-' + s);
     if (el) el.classList.toggle('on', s === 1);
@@ -12346,7 +12355,7 @@ setTimeout(() => {
 const _initAnalytics = document.getElementById('dashboard-analytics');
 if (_initAnalytics) _initAnalytics.style.display = 'block';
 
-const alreadyOnboarded = sessionStorage.getItem('cq_onboarded');
+const alreadyOnboarded = sessionStorage.getItem('cq_onboarded') || localStorage.getItem('cq_hide_onboarding');
 const savedBelt = sessionStorage.getItem('cq_belt');
 if (alreadyOnboarded) {
   document.getElementById('onboard-modal').classList.remove('visible');
